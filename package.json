@@ -1,0 +1,33 @@
+{
+  "name": "@pfoerdie/benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "bench/bytesum": "tsx bench/bytesum.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pfoerdie/benchmark.git"
+  },
+  "keywords": [
+    "benchmark",
+    "performance"
+  ],
+  "author": "Simon Petrac <pfoerdie@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/pfoerdie/benchmark/issues"
+  },
+  "homepage": "https://github.com/pfoerdie/benchmark#readme",
+  "devDependencies": {
+    "@types/cli-progress": "^3.11.5",
+    "@types/node": "^20.14.2",
+    "tsx": "^4.15.4",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "cli-progress": "^3.12.0"
+  }
+}
