@@ -12,7 +12,6 @@ export default class Test<T> {
     if (typeof label !== 'string') throw new Error('label must be a string')
     if (label.length === 0) throw new Error('label must not be an empty string')
     if (typeof tester !== 'function') throw new Error('tester must be a function')
-
     this.#label = label
     this.#tester = tester
     this.#runs = 0

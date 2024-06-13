@@ -14,3 +14,8 @@ export function prettyFormatNumber(value: number, precision: number = 3, unit: s
   const valueFormatted = (roundedValue / 10 ** quantifierFactor).toLocaleString(locale, { maximumSignificantDigits: precision + 1 })
   return valuePrefix + valueFormatted + valueSuffix
 }
+
+/** @see https://vt100.net/docs/vt510-rm/SGR.html */
+export function SGR(value: number): string {
+  return `\x1b[${value}m`
+}

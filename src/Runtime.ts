@@ -1,14 +1,19 @@
 import ProgressBar from './ProgressBar'
 import Test from './Test'
+import { SGR } from './util'
 
 export default class Runtime<T> {
 
+  #label: string
   #tests: Array<Test<T>>
   #generator: (index: number) => T
   #progress: ProgressBar
 
-  constructor(generator: (index: number) => T) {
+  constructor(label: string, generator: (index: number) => T) {
+    if (typeof label !== 'string') throw new Error('label must be a string')
+    if (label.length === 0) throw new Error('label must not be an empty string')
     if (typeof generator !== 'function') throw new Error('generator must be a function')
+    this.#label = label
     this.#tests = []
     this.#generator = generator
     this.#progress = new ProgressBar()
@@ -32,6 +37,7 @@ export default class Runtime<T> {
     if (repetitions <= 0) throw new Error('repetitions must be greater than 0')
     if (!Number.isInteger(length)) throw new Error('length must be an integer')
     if (length <= 0) throw new Error('length must be greater than 0')
+    console.log(SGR(1) + this.#label + SGR(22))
     const dataArr = new Array(length).fill(null).map((value, index) => this.#generator(index))
     this.#progress.start(repetitions * this.#tests.length, 0)
     for (let k = 0; k < repetitions; k++) {

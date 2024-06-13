@@ -2,8 +2,11 @@ import { Test, Runtime } from '@pfoerdie/benchmark'
 import { randomInt, randomBytes } from 'node:crypto'
 
 const runtime = new Runtime(
-  function () {
-    return randomBytes(randomInt(100, 1000))
+  'Calculate the bytesum of a buffer by adding all bytes into a single uint8 value',
+  function (index) {
+    // const length = randomInt(128, 1024)
+    const length = 128 + 8 * index
+    return randomBytes(length)
   }
 )
 
@@ -55,5 +58,5 @@ runtime.register(new Test(
   }
 ))
 
-runtime.exec(1000, 2000)
+runtime.exec(1000, 100)
 runtime.print()

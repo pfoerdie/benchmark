@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "bench/bytesum": "tsx bench/bytesum.ts"
+    "bench/bytesum": "tsx bench/bytesum.ts",
+    "bench/fill-array": "tsx bench/fill-array.ts"
   },
   "repository": {
     "type": "git",
