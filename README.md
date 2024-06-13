@@ -1,1 +1,1 @@
-# benchmark
+# @pfoerdie/benchmark
